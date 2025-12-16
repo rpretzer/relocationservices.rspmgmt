@@ -3,23 +3,569 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Relocation Services — RSP Management LLC</title>
-  <meta name="description" content="Relocation services by RSP Management LLC." />
+  <title>Relocation Services — RSP Management Solutions LLC</title>
+  <meta name="description" content="Hybrid chief-of-staff style relocation partner for HNWIs. Tech-powered visibility, coordination, and decision-making with a single accountable human team." />
   <meta name="theme-color" content="#0a0a0a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta property="og:title" content="Relocation Services — RSP Management LLC" />
-  <meta property="og:description" content="Relocation services by RSP Management LLC." />
+  <meta property="og:title" content="Relocation Services — RSP Management Solutions LLC" />
+  <meta property="og:description" content="Hybrid chief-of-staff style relocation partner for HNWIs. Tech-powered visibility, coordination, and decision-making." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://relocationservices.rspmgmt.com" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-bg: #0a0a0a;
+      --color-surface: #141414;
+      --color-text: #e5e5e5;
+      --color-text-muted: #a0a0a0;
+      --color-accent: #d4af37;
+      --color-accent-hover: #f5d76e;
+      --color-border: #2a2a2a;
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 2rem;
+      --spacing-lg: 4rem;
+      --spacing-xl: 6rem;
+      --max-width: 1200px;
+      --border-radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+      padding: var(--spacing-sm) 0;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text);
+      text-decoration: none;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--spacing-md);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: var(--spacing-xl) 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: var(--spacing-md);
+      background: linear-gradient(135deg, var(--color-text) 0%, var(--color-text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      color: var(--color-text-muted);
+      max-width: 800px;
+      margin: 0 auto var(--spacing-lg);
+      font-weight: 400;
+    }
+
+    .hero .tagline {
+      font-size: 1.25rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      margin-bottom: var(--spacing-lg);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--color-accent);
+      color: var(--color-bg);
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+
+    .cta-button:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Section Styles */
+    section {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-md);
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-accent);
+    }
+
+    .card p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: var(--spacing-sm);
+    }
+
+    .card ul li {
+      color: var(--color-text-muted);
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .card ul li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+
+    /* Two Column Layout */
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+      align-items: start;
+    }
+
+    .two-column h3 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-accent);
+    }
+
+    .two-column p {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* Feature List */
+    .feature-list {
+      list-style: none;
+      margin-top: var(--spacing-md);
+    }
+
+    .feature-list li {
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--color-border);
+      margin: var(--spacing-xl) 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--spacing-lg) 0;
+      margin-top: var(--spacing-xl);
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+    }
+
+    footer p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: var(--spacing-lg) 0;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: var(--color-surface);
+      border-left: 4px solid var(--color-accent);
+      padding: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+      border-radius: var(--border-radius);
+    }
+
+    .highlight-box p {
+      color: var(--color-text);
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+  </style>
 </head>
 <body>
-  <main style="max-width: 800px; margin: 0 auto; padding: 48px 24px; font-family: 'Inter', sans-serif;">
-    <h1>Relocation Services</h1>
-    <p>Site coming soon.</p>
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">RSP Management Solutions</a>
+      <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#differentiators">Differentiators</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="tagline">Your Relocation Chief of Staff</p>
+        <h1>Tech-Enabled Relocation for High Net Worth Individuals</h1>
+        <p class="subtitle">
+          A hybrid partner that combines a single accountable human team with a tightly focused, 
+          tech-powered backbone for visibility, coordination, and decision-making.
+        </p>
+        <a href="#contact" class="cta-button">Begin Your Relocation</a>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="container">
+        <div class="section-header">
+          <h2>Where Traditional VIP Relocation Falls Short</h2>
+          <p>We address the fundamental gaps that create complexity and frustration for executives and their families</p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Fragmented Experience</h3>
+            <p>
+              Most executive moves rely on a patchwork of real estate agents, movers, immigration lawyers, 
+              schools consultants, and travel providers, with no single owner of the whole outcome.
+            </p>
+            <p style="margin-top: 1rem; color: var(--color-text);">
+              For HNWIs, this creates complexity, duplicated questions, and a sense that no one is truly 
+              accountable for "door‑to‑door, family‑ready" success.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Low Transparency & Control</h3>
+            <p>
+              Executives and spouses want real-time visibility into what's done, what's blocked, and what 
+              needs their decision – instead they usually get email chains and PDF timelines.
+            </p>
+            <p style="margin-top: 1rem; color: var(--color-text);">
+              They also suspect that a lot of the best options (schools, housing, clubs, staff, experiences) 
+              sit off‑market or inside personal networks, not listing portals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="differentiators">
+      <div class="container">
+        <div class="section-header">
+          <h2>The RSP Difference</h2>
+          <p>A tech-enabled "relocation chief of staff" – one relationship that orchestrates all vendors and decisions</p>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Positioning:</strong> Instead of "relocation agent," we frame the service as a private 
+            chief‑of‑staff for a life move: one relationship that orchestrates all vendors and decisions 
+            across housing, schools, lifestyle, and staff. Value is curation, judgment, and advocacy; 
+            technology exists to make us superhumanly organized, responsive, and proactive.
+          </p>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3>Technology Stack</h3>
+            <p>Our platform provides the transparency and control executives expect:</p>
+            <ul class="feature-list">
+              <li>
+                <strong>Secure Client Portal:</strong> Mobile-first portal for each family with live checklist, 
+                Kanban‑style move board, key dates, documents, and approvals
+              </li>
+              <li>
+                <strong>Asynchronous Communications:</strong> Integrated WhatsApp/iMessage and in-app messaging 
+                with SLAs and "who owns what" clearly visible to the client
+              </li>
+              <li>
+                <strong>Smart Decision Tooling:</strong> Side‑by‑side comparisons of neighborhoods, schools, 
+                and properties; commute time and safety overlays; shortlists the couple can annotate together
+              </li>
+              <li>
+                <strong>Issue Prediction:</strong> Basic automation to flag visa risk, school application windows, 
+                or temporary‑housing gaps early, with proactive options presented
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>White-Glove Service Layers</h3>
+            <p>The human touch that HNWIs actually pay for:</p>
+            <ul class="feature-list">
+              <li>
+                <strong>Family & Lifestyle Centricity:</strong> Deep work on children's schooling, extracurriculars, 
+                medical providers, domestic staff, security, worship/communities, clubs, and social integration – 
+                effectively building a new life, not just a new address
+              </li>
+              <li>
+                <strong>Concierge Excellence:</strong> Booking school tours, arranging private viewings, 
+                introducing them to clubs, and orchestrating first-week social calendars
+              </li>
+              <li>
+                <strong>Discretion, Speed & Exclusivity:</strong> NDA-backed vendor relationships, private/whisper 
+                listings, VIP fast lanes for utilities, banking, and memberships
+              </li>
+              <li>
+                <strong>24/7 Red Phone:</strong> A single contact with guaranteed human response beats chatbots; 
+                tech supports that responsiveness by routing, logging, and preparing answers behind the scenes
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Model</h2>
+          <p>Productized service tiers with clear frameworks, customized within bounds</p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Focused Geography</h3>
+            <p>
+              We narrow our Ideal Client Profile and geography first. Depth of vendor network and repeatable 
+              playbooks in a few corridors matter more than being nominally global.
+            </p>
+            <p style="margin-top: 1rem; color: var(--color-text);">
+              Examples: C‑suite and founders relocating between major North American and EU metros, or HNWI 
+              moving to Sun Belt and select global hubs.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Productized Tiers</h3>
+            <p>
+              We build 2–3 fixed frameworks (e.g., Executive, Family, Ultra) with clear inclusions, then 
+              customize within those bounds rather than starting from zero each time.
+            </p>
+            <p style="margin-top: 1rem; color: var(--color-text);">
+              Our platform standardizes workflow and data capture, so each new client benefits from the last 
+              one's playbook while still feeling fully bespoke.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Single Accountability</h3>
+            <p>
+              One relationship, one point of contact, one team accountable for the entire outcome. No more 
+              fragmented vendor coordination or unclear ownership.
+            </p>
+            <p style="margin-top: 1rem; color: var(--color-text);">
+              Technology amplifies our ability to coordinate, but the human relationship remains at the center 
+              of every successful relocation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Begin Your Relocation</h2>
+          <p>Ready to experience a different kind of relocation service?</p>
+        </div>
+
+        <div style="max-width: 600px; margin: var(--spacing-lg) auto; text-align: center;">
+          <p style="font-size: 1.125rem; color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+            Contact us to discuss your relocation needs and learn more about our service tiers.
+          </p>
+          <a href="mailto:info@rspmgmt.com" class="cta-button">Get in Touch</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 RSP Management Solutions LLC. All rights reserved.</p>
+      <p>
+        <a href="mailto:info@rspmgmt.com">info@rspmgmt.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
